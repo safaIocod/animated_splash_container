@@ -2,9 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AnimatedSplashContainer extends StatefulWidget {
-  const AnimatedSplashContainer({super.key, this.color1, this.color2});
-  final Color? color1;
+  const AnimatedSplashContainer(
+      {super.key,
+      this.color1 = const Color(0xFFDD9AC1),
+      this.color2 = const Color.fromARGB(
+        255,
+        91,
+        232,
+        235,
+      ),
+      this.containerType = ContainerType.parallelogram});
+  final Color color1;
   final Color? color2;
+  final ContainerType containerType;
   @override
   State<AnimatedSplashContainer> createState() =>
       __AnimatedSplashContainerState();
@@ -60,28 +70,29 @@ class __AnimatedSplashContainerState extends State<AnimatedSplashContainer>
                   duration: _controller.duration!,
                   curve: Curves.easeInOut,
                   height: play ? 200.h : 100.h,
-                  bottom: play ? 230.h : 0,
+                  bottom: play ? 260.h : 0,
                   left: play ? 140.w : 100.w,
                   child: Opacity(
-                    opacity: opacity,
-                    child: ParallelogramContainer(
-                      color: widget.color1 ?? const Color(0xFFDD9AC1),
-                    ),
-                  ),
+                      opacity: opacity,
+                      child: widget.containerType == ContainerType.parallelogram
+                          ? ParallelogramContainer(
+                              color: widget.color1,
+                            )
+                          : CircleContainer(color: widget.color1)),
                 ),
                 AnimatedPositioned(
                   duration: _controller.duration!,
                   curve: Curves.easeInOut,
                   height: play ? 100.h : 100.h,
-                  top: play ? 340.h : 0,
+                  top: play ? 310.h : 0,
                   right: play ? 130.w : 0,
                   child: Opacity(
-                    opacity: opacity,
-                    child: ParallelogramContainer(
-                      color: widget.color2 ??
-                          const Color.fromARGB(255, 91, 232, 235),
-                    ),
-                  ),
+                      opacity: opacity,
+                      child: widget.containerType == ContainerType.parallelogram
+                          ? ParallelogramContainer(
+                              color: widget.color2,
+                            )
+                          : CircleContainer(color: widget.color2)),
                 ),
               ],
             ),
@@ -107,3 +118,17 @@ class ParallelogramContainer extends StatelessWidget {
     );
   }
 }
+
+class CircleContainer extends StatelessWidget {
+  const CircleContainer({super.key, required this.color});
+  final Color? color;
+  @override
+  Widget build(BuildContext context) {
+    return CircleAvatar(
+      radius: 50.r,
+      backgroundColor: color,
+    );
+  }
+}
+
+enum ContainerType { circle, parallelogram }
