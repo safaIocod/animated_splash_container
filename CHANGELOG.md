@@ -1,3 +1,4 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* TODO: animated containers that can be typically used in splash screens
+
