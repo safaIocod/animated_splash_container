@@ -1,6 +1,6 @@
 name: animated_splash_container
 description: "A Flutter widget that creates animated splash screens with customizable colors"
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/safaIocod/animated_splash_container.git
 
 environment:
