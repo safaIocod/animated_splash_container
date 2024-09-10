@@ -74,6 +74,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return const AnimatedSplashContainer(
       color1: Colors.red,
       color2: Colors.yellow,
+      containerType: ContainerType.circle
     );
   }
 }
