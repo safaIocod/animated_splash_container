@@ -20,6 +20,9 @@ and the Flutter guide for
 
 
 ## Usage
+
+![usage](https://github.com/safaIocod/animated_splash_container/blob/main/animated_splash_circle.gif?raw=true)
+!(https://github.com/safaIocod/animated_splash_container/blob/main/animated_splash_parellelogram.gif?raw=true)
 ### Add dependency
 
 Please check the latest version before installation.
